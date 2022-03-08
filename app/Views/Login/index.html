@@ -1,0 +1,26 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<div class="container">
+	<div class="page-title">
+		<h1>Login</h1>
+	</div>
+	<div class="page-container">
+		<br>
+		<form id="loginForm" url="<?=URL?>/login/auth"  class="ajaxform">
+			<br>
+			<h1><center>Login to Proceed</center></h1>
+			<input type="text" placeholder="User ID" name="login" class="input-full">
+			<input type="password" placeholder="Password" name="password" class="input-full">
+			<input type="hidden" name="urlRedirect" value="<?=$arguments["urlRedirect"]?>"/>
+			<div class="clear"></div>
+			<br>
+			<br>
+			<div class="separator"></div>
+			<br>
+			<button class="btn-confirm"></button>
+		</form>
+	</div>
+</div>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

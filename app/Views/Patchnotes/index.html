@@ -1,0 +1,58 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<style>
+	img{
+		width: 1000px;
+	}
+	ul {
+		display: block;
+		list-style-type: disc;
+		margin-top: 1em;
+		margin-bottom: 1 em;
+		margin-left: 45%;
+		margin-right: 0;
+		padding-left: 0px;
+		text-align: left;
+	}
+
+ </style>
+  
+<div class="container">
+	<div class="page-title">
+		<h1>Latest Patch Notes</h1>
+	</div>
+	<div class="page-container">
+			<div class="desc-patchnotes">
+				<?php if(count($arguments) <= 0) : ?>
+					<center><p>Nothing to display</p></center></br>
+					<img src = '<?=URL?>/images/patchnotes/separator.png'> <img/>
+				<?php endif; ?>
+				<?php foreach($arguments as $patchnotes) : ?>
+					<?php
+						$date = date_create($patchnotes->regDate);
+						$regDate = date_format($date, "m-d-Y");
+					?>
+					<center>
+					<img src = '<?=$patchnotes->banner?>' title="<?=$patchnotes->title?>"><img/><br>
+					<p><b><?=$regDate?> - <?=$patchnotes->title?></b></p>
+					</center>
+					<br>
+					<div style="font-weight: normal; font-family: source;">
+						<?=$patchnotes->body?>
+					</div>
+					<br><br>
+					<center><img src = '<?=URL?>/images/patchnotes/separator.png'><img/></center>
+				<?php endforeach; ?>
+			</div>
+			<center>
+			<h1 style="text-align: center; font-size: 36px; font-weight: 700;">Make sure to join our <br>community!</h1>
+			<div class="discord"><a target='_blank' href="<?=DISCORD?>"></a></div>
+			<div class="facebook"><a href="<?=TELEGRAM?>"></a></div>
+			</center>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

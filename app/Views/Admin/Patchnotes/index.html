@@ -1,0 +1,63 @@
+<?php require_once(__DIR__ . "/../Header.html");?>
+<div class="main-content">
+	<div class="card">
+		<h4 class="card-title"><strong>Patch Notes</strong></h4>
+		<div class="card-body">
+		  <table class="table table-separated">
+			<thead>
+			  <tr>
+				<th class="w-150px">Date</th>
+				<th>Title</th>
+				<th class="text-center w-100px">Important</th>
+				<th class="text-center w-100px">Actions</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <?php if(sizeof($arguments["patchnotes"]) > 0):?>
+				<?php foreach($arguments["patchnotes"] as $patchnotes):?>
+				<tr>
+					<td><?=date_format(date_create($patchnotes->regDate), "Y-m-d")?></td>
+					<td><?=$patchnotes->title?></td>
+					<td class="text-center">
+						<label class="toggler d-none d-md-block">
+							<input type="checkbox" <?php if($patchnotes->important == 1) {echo " checked";}?> disabled>
+							<i class="fa fa-star"></i>
+						</label>
+					</td>
+					<td class="text-center table-actions">
+					<a class="table-action hover-primary" href="<?=ADMIN_URL?>/patchnotes/edit/<?=$patchnotes->id?>"><i class="ti-pencil"></i></a>
+					<a class="table-action hover-danger" onclick="deletePatchNotes('<?=$patchnotes->id?>')" ><i class="ti-trash"></i></a>
+					</td>
+				</tr>
+				<?php endforeach;?>
+			  <?php else:?>
+			  <tr>
+				<td colspan="4"><center>No results found.</center></td>
+			  </tr>
+			  <?php endif;?>
+			</tbody>
+		  </table>
+		</div>
+	</div>
+	<div class="fab fab-fixed">
+		<a class="btn btn-float btn-primary" href="<?=ADMIN_URL?>/patchnotes/insert" title="" data-provide="tooltip" data-original-title="New patch note"><i class="ti-plus"></i></a>
+	</div>
+</div>
+<script data-provide="sweetalert">
+	function deletePatchNotes(id)
+	{
+		swal({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then(function() {
+			window.location.href = "<?=ADMIN_URL?>/patchnotes/delete/" + id;
+		})
+	}
+</script>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

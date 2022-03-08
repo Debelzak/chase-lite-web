@@ -1,0 +1,55 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<div class="container">
+	<div class="page-title">
+		<h1>My Account</h1>
+	</div>
+	<div class="page-container">
+		<div class="navbar-panel">
+			<ul>
+				<li><a href="<?=URL?>/myaccount/">Account Info</a></li>
+				<li><a href="<?=URL?>/myaccount/changepassword">Change Password</a></li>
+				<li><a href="<?=URL?>/myaccount/donationlog">Donation History</a></li>
+				<li><a href="<?=URL?>/donate">Recharge</a></li>
+				<li><a href="<?=URL?>/myaccount/logout">Logout</a></li>
+			</ul>
+		</div>
+		<div class="rankings">
+			<br/>
+			<h1 style="text-align: center; font-size: 30px; font-weight: bold;">Donation Log</h1>
+			<table class="table-ranking">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Date</th>
+						<th>Transaction ID</td>
+						<th>Value</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($arguments["userDonations"] as $userDonation) :?>
+					<tr>
+						<td><?=$userDonation["number"]?></td>
+						<td><?=$userDonation["date"]?></td>
+						<td><?=$userDonation["reference"]?></td>
+						<td>$<?=$userDonation["value"]?></td>
+						<td><font color="<?php if($userDonation['status'] == 'Completed'){echo 'green';} else {echo 'yellow';} ?>"><?=$userDonation["status"]?></font></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<?php if(empty($arguments["userDonations"])) : ?>
+				<center><h1><i>All your donations status will be shown here, come back after your first donation.</i></h1></center>
+				<br><br>
+			<?php endif; ?>
+			<h1><center>1</center></h1>
+			<br><br><br>
+			<br><br><br>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

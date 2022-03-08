@@ -1,0 +1,43 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<div class="container">
+	<div class="page-title">
+		<h1>Chase Lite Donations</h1>
+	</div>
+	<div class="page-container amy-bg">
+		<h1 style="font-size: 32px; font-weight: bold; margin: 70px 0px 0px 76px; float: left;">Choose your package</h1>
+		<ul class="btn-donate">
+			<li class="active" payment="paypal">PayPal</li>
+		</ul>
+		<div class="clear"></div>
+		<div class="donate" id="paypal">
+			<?php foreach(PAYMENT_TO_CASH as $v => $m):?>
+				<form class="methods" action="<?=PAYPAL_URL?>/cgi-bin/webscr" method="post" target="_blank">
+					<input type="hidden" name="cmd" value="_xclick" />
+					<input type="hidden" name="business" value="<?=PAYPAL_RECEIVE_EMAIL?>" />
+					<input type="hidden" name="item_name" value="Donate with: <?=$_SESSION['loggedUser']['Login']?>" />
+					<input type="hidden" name="item_number" value="<?=gen_uuid()?>" />
+					<input type="hidden" name="currency_code" value="<?=PAYPAL_CURRENCY_TYPE?>" />
+					<input type="hidden" name="amount" value="<?=$v?>"/>
+					<input type="hidden" name="no_shipping" value="1" />
+					<input type="hidden" name="shipping" value="0.00" />
+					<input type="hidden" name="return" value="<?=PAYPAL_RETURN_URL?>" />
+					<input type="hidden" name="cancel_return" value="<?=PAYPAL_RETURN_URL?>" />
+					<input type="hidden" name="notify_url" value="<?=PAYPAL_NOTIFY_URL?>" />
+					<input type="hidden" name="custom" value="<?=$_SESSION['loggedUser']['Login']?>" />
+					<input type="hidden" name="no_note" value="1" />
+					<input type="hidden" name="tax" value="0.00" />
+					<button type="submit">
+						<div class="box">
+							<span class="subtitle"><?=number_format($m)?> CASH</span>
+							<p class="title">$<?=number_format($v, 2, ".", " ")?></p>
+						</div>
+					</button>
+				</form>
+			<?php endforeach ?>
+		</div>
+	</div>
+</div>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

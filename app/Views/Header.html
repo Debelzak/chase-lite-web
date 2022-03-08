@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+	<!-- METAS -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<meta name="viewport" content="width=1078">
+	<meta name="Description" content="Chase Lite is the go-to server that strives to provide unique custom content in a friendly, stable environment." />
+	<meta name="Keywords" content="" />
+	<meta name="Distribution" content="Global" />
+	<meta name="Author" content="NyxDevs" />
+	<meta name="Robots" content="index,follow" />
+	<meta property="og:title" content="Chase Lite">
+	<meta property="og:description" content="Chase Lite is the go-to server that strives to provide unique custom content in a friendly, stable environment." />
+	<meta property="og:url" content="<?=URL?>">
+	<meta property="og:site_name" content="Chase Lite - Home" />
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="<?=URL?>/images/logo_meta.png">
+	<title><?=TITLE?></title>
+  	<link rel="preload" href="<?=URL?>/css/style.css" as="style">
+	<link rel="preload" href="<?=URL?>/fonts/SourceSansPro-Regular.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="<?=URL?>/fonts/SourceSansPro-Regular.woff" as="font" type="font/woff" crossorigin>
+	<link rel="preload" href="<?=URL?>/fonts/SourceSansPro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="icon" type="ico" href="<?=URL?>/images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="<?=URL?>/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL?>/js/slide/slide.css">
+	</head>
+	<script type="text/javascript">
+		
+		function OpenModal(){
+			document.getElementById('modal').style.top = "0";
+		}
+		function CloseModal(){
+			document.getElementById('modal').style.top = "-200%";
+		}
+	</script>
+<body>
+	<div class="bg-modal" id="modal">
+		<div class="modal">
+			<span class="close" onclick="CloseModal()">&times;</span>
+			<form id="fastLoginForm" url="<?=URL?>/login/auth/" class="ajaxform">
+				<p class="pat">LOG IN</p>
+				<input type="text" placeholder="User ID" name="login" class="input-full">
+				<input type="password" placeholder="Password" name="password" class="input-full">
+				<button id="btn_enter" class="btn_enter"></button>
+				<a class="Text-1" href="<?=URL?>/forgotpassword">Forgot your password?</a>
+				<a class="Text-1" href="<?=URL?>/register">Don't have an account? Register now!</a>
+			</form>
+		</div>
+	</div>
+<!-- Leaves -->
+<div class="leaves">
+	<div class="leaves-1"></div>
+	<div class="leaves-2"></div>
+	<div class="leaves-3"></div>
+	<div class="leaves-4"></div>
+	<div class="leaves-5"></div>
+	<div class="leaves-6"></div>
+	<div class="leaves-7"></div>
+	<div class="leaves-8"></div>
+</div>
+<div class="navbar">
+	<div class="container">
+		<!--<div class="logo_icon"></div>-->
+		<ul>
+			<li><a href="<?=URL?>/home/"><b>Home</a></li>
+			<?php if (isset($_SESSION["loggedUser"])) : ?>
+				<li><a href="<?=URL?>/donate/">Donate&nbsp;&nbsp;&nbsp;</a></li>
+			<?php else: ?>
+				<li><a href="<?=URL?>/register/">Register</a></li>
+			<?php endif; ?>
+			<li><a href="<?=URL?>/ranking/">Rankings</a></li>
+			<li><a target="_blank" href="<?=FORUM?>">Forum</a></li>
+			<div class="icon-ds"><a target="_blank" href="<?=DISCORD?>"></a></div>
+			<div class="icon-fb"><a target="_blank" href="<?=TELEGRAM?>"></a></div>
+			<?php if(isset($_SESSION["loggedUser"])): ?>
+			<li><a href="#" class="dropdown" id="drop"><span>Welcome, </span><p class="seta-baixo"></p><p class="Name"><?=$_SESSION["loggedUser"]["Login"]?></p></a>
+				<ul>
+					<br>
+					<?php if($this->hasAdminLevel(10)):?>
+					<li><a href="<?=URL?>/admin/"><font color="red">Admin Panel</font></a></li>
+					<?php endif; ?>
+					<li><a href="<?=URL?>/myaccount">My Account</a></li>
+					<li><a href="<?=URL?>/myaccount/donationlog">My Donations</a></li>
+					<li><a href="<?=URL?>/token">Redeem Token</a></li>
+					<li><a href="<?=URL?>/myaccount/logout">Logout</a></li>
+					<br>
+				</ul>
+			</li>
+			<?php else: ?>
+			<div class="btn_login" >
+				<a onclick="OpenModal()">Log in</a>
+			</div>
+			<?php endif; ?>
+		</ul>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="logo"></div>
+<div class="download">
+	<div class="btn"><a href="<?=URL?>/download/"></a></div>
+	<p><font color="black">Download Size: <?=DOWNLOAD_SIZE?></font></p>
+</div>
+<div id = "container">
+	
+</div>

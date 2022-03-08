@@ -1,0 +1,14 @@
+.jcarousel-wrapper {width: 777px; float: left; }
+.jcarousel {width: 777px; height: 372px; position: relative; overflow: hidden;}
+.jcarousel ul {width: 20000em; position: relative; list-style: none; margin: 0; padding: 0;}
+.jcarousel li {float: left;}
+.jcarousel li img{width: 777px; height: 372px;}
+/** Carousel Controls **/
+
+.jcarousel-control-prev:hover span,.jcarousel-control-next:hover span {display: block;}
+.jcarousel-control-prev.inactive,.jcarousel-control-next.inactive {opacity: .5; cursor: default;}
+/** Carousel Pagination **/
+.jcarousel-pagination {position: relative; margin-top: -35px; float: left; left: 15px;}
+.jcarousel-pagination a {border-radius: 50%; background-color: #2b98e1; text-decoration: none; display: inline-block; font-size:0; margin-right:6px; width: 11px; height: 11px; transition:all ease-in-out 0.5s; -moz-transition:all ease-in-out 0.5s; -webkit-transition:all ease-in-out 0.5s; -o-transition:all ease-in-out 0.5s; -ms-transition:all ease-in-out 0.5s;
+}
+.jcarousel-pagination a:hover, .jcarousel-pagination a.active{background-color: #ffc53e;}

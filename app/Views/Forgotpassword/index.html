@@ -1,0 +1,39 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<div class="container">
+	<div class="page-title">
+		<h1>Forgot password</h1>
+	</div>
+	<div class="page-container">
+		<br>
+		<h1 style="text-align: center; font-size: 30px; font-weight: bold;">Recover password</h1>
+		<div class="info">
+			<form id="recoverForm" method="post" class="ajaxform" url="<?=URL?>/forgotpassword/send">
+				<br>
+				<input type="text" placeholder="User ID" id="username" name="username" class="input-full">
+				<input type="email" placeholder="Email" id="email" name="email" class="input-full">
+			<?php if(RECAPTCHA_ENABLE): ?>
+			<div class="google_robot" style="float: right; margin: 28px 0px 0px 0px;">
+				<script>
+					function reCapchaCallback()
+					{
+						$("#btn-submit").removeClass("disabled");
+					}
+				</script>
+				<div class="g-recaptcha" data-callback="reCapchaCallback" data-sitekey="<?=RECAPTCHA_SITEKEY?>" style="margin: 0px 100px 0px;"></div>
+			</div>
+			<?php endif; ?>
+			<div class="clear"></div>
+			<br><br>
+			<div class="separator"></div>
+			<br>
+			<button id="btn-submit" class="btn-confirm"></button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

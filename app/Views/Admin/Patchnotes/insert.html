@@ -1,0 +1,53 @@
+<?php require_once(__DIR__ . "/../Header.html");?>
+<div class="main-content">
+	<div class="card">
+		<h4 class="card-title"><strong>Patch Notes - Inserting</strong></h4>
+		<div class="card-body">
+            <form enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <div class="text-center">
+                        <img width="1000px" src="<?=URL?>/images/patchnotes/_noimage.png"></img>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-normal">Banner (Optional)</label>
+                    <div class="input-group file-group">
+                      <input type="text" id="bannerFileName" name="bannerFileName" class="form-control file-value" placeholder="Choose file..." readonly="">
+                      <input type="file" name="banner">
+                      <span class="input-group-btn">
+                        <button class="btn btn-light" type="button" onclick="cleanBanner()"><i class="fa fa-close"></i></button>
+                        <button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
+                      </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-normal">Title</label>
+                    <input name="title" type="text" class="form-control" id="input-normal" placeholder="Insert a title for the patch notes" required>
+                </div>
+                <div class="form-group">
+                    <label for="input-normal">Important</label>
+                    <label class="toggler d-none d-md-block">
+                        <input name="important" type="checkbox">
+                        <i class="fa fa-star"></i>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="input-normal">Body</label>
+                    <textarea name="body" data-provide="summernote" data-toolbar="full" data-min-height="150" style="display: none;" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary file-browser" type="button">Insert</button>
+                    <a href="<?=ADMIN_URL?>/patchnotes/"><button class="btn btn-secondary file-browser" type="button">Go back</button></a>
+                </div>
+            </form>
+		</div>
+	</div>
+</div>
+<script>
+    function cleanBanner()
+    {
+        $("#bannerFileName").val("");
+    }
+</script>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

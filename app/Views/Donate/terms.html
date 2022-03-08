@@ -1,0 +1,39 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<?php 
+	if(!isset($_SESSION['gc_terms'])):
+		$_SESSION['gc_terms'] = true;
+	endif;
+?>
+<div class="container">
+	<div class="page-title">
+			<h1>Donation Terms</h1>
+		</div>
+		<div class="page-container">
+			<br>
+			<h1 style="font-size: 30px; text-align: center; font-weight: bold;">Before proceeding, please read the terms of use.</h1>
+			<br>
+			<div class="info">
+				<div class="dialog-success">
+					<b>1.</b> Cash Points are the virtual currency within <?=TITLE?> that allows the user to purchase items, accessories, pets, tickets and other things, located throughout the stores and services available in-game.
+					<br><br>
+					<b>2.</b> All amount(s) acquired through any payment buttons provided/displayed will be considered as a direct expression of voluntary intention, in which the user expresses their decision and consent to acquire the virtual currency(s) offered.
+					<br><br>
+					<b>3.</b> Any currencies purchased do not have cash-value and are not redeemable for real-world currency.
+					<br><br>
+					<b>4.</b> Any money donated will not be returned to the user under any circumstances, even if the user's account is banned due to any irregularities or violations.
+					<br><br>
+					<b>5.</b> In case of any anomalies or issues with the donation system or delay in the virtual currency's automated delivery, our team reserves the right to correct the problem in a timely manner without player or third-party intervention.
+					<br><br>
+					<b>6.</b> Any fraudulent transactions or illegally obtainined CASH Points, will be deleted and will result in a permanent suspension of the user's account(s).
+				</div>
+				<br>
+				<h1 style="text-align: center; color: red; font-size: 16px;">By clicking on the "Refresh" button below or proceeding to the next page, you automatically agree to all the donation terms specified.</h1>
+				<div class="btn_center" onclick="window.location.reload();"><a>Refresh</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

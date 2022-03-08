@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Admin Panel &mdash; <?=TITLE?></title>
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+		<!-- Styles -->
+		<link href="<?=URL?>/assets/css/core.min.css" rel="stylesheet">
+		<link href="<?=URL?>/assets/css/app.min.css" rel="stylesheet">
+		<link href="<?=URL?>/assets/css/style.min.css" rel="stylesheet">
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" href="<?=URL?>/assets/img/apple-touch-icon.png">
+	</head>
+	<body>
+		<!-- Preloader -->
+		<div class="preloader">
+			<div class="spinner-dots">
+				<span class="dot1"></span>
+				<span class="dot2"></span>
+				<span class="dot3"></span>
+			</div>
+		</div>
+		<aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
+			<header class="sidebar-header">
+				<a class="logo-icon" href="<?=ADMIN_URL?>"><img src="<?=URL?>/images/logo_meta.png" alt="logo icon"></a>
+				<span class="logo">
+				<a href="<?=ADMIN_URL?>"><img src="<?=URL?>/assets/img/logo-light.png" alt="logo"></a>
+				</span>
+				<span class="sidebar-toggle-fold"></span>
+			</header>
+			<nav class="sidebar-navigation">
+				<ul class="menu">
+					<li class="menu-category">Main</li>
+					<li class="menu-item <?php if(\App\Core\App::$currentController == 'Dashboard') {echo 'active';}?>">
+						<a class="menu-link" href="<?=ADMIN_URL?>/dashboard/">
+						<span class="icon fa fa-home"></span>
+						<span class="title">Dashboard</span>
+						</a>
+					</li>
+					<li class="menu-item <?php if(\App\Core\App::$currentController == 'Patchnotes' || \App\Core\App::$currentController == 'Sliders') {echo 'active';}?>">
+						<a class="menu-link open" href="#">
+						  <span class="icon ti-layout"></span>
+						  <span class="title">Website</span>
+						  <span class="arrow"></span>
+						</a>
+						<ul class="menu-submenu"" style="display: block;">
+						  <li class="menu-item <?php if(\App\Core\App::$currentController == 'Patchnotes') {echo 'active';}?>">
+							<a class="menu-link" href="<?=ADMIN_URL?>/patchnotes/">
+							  <span class="dot"></span>
+							  <span class="title">Patch Notes</span>
+							</a>
+						  </li>
+			
+						  <li class="menu-item">
+							<a class="menu-link" href="#">
+							  <span class="dot"></span>
+							  <span class="title">Sliders</span>
+							</a>
+						  </li>
+						</ul>
+					</li>
+					<li class="menu-item">
+						<a class="menu-link" href="../dashboard/index.html">
+						<span class="icon fa fa-dollar"></span>
+						<span class="title">Donations</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+		<header class="topbar">
+			<div class="topbar-left">
+				<span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
+				<a class="topbar-btn d-none d-md-block" href="#" data-provide="fullscreen tooltip" title="Fullscreen">
+				<i class="material-icons fullscreen-default">fullscreen</i>
+				<i class="material-icons fullscreen-active">fullscreen_exit</i>
+				</a>
+				<div class="topbar-divider d-none d-md-block"></div>
+				<div class="lookup d-none d-md-block topbar-search" id="theadmin-search">
+					<input class="form-control w-300px" type="text">
+					<div class="lookup-placeholder">
+						<i class="ti-search"></i>
+						<span data-provide="typing" data-type="<strong>Type</strong> Button|<strong>Type</strong> Slider|<strong>Type</strong> Layout|<strong>Type</strong> Modal|<strong>Try</strong> typing any keyword..." data-loop="false" data-type-speed="90" data-back-speed="50" data-show-cursor="false"></span>
+					</div>
+				</div>
+			</div>
+			<div class="topbar-right">
+				<ul class="topbar-btns">
+                    <li class="dropdown">
+                        <span class="topbar-btn" data-toggle="dropdown"><i class="ti-align-right"></i></span>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="<?=URL?>"><i class="ti-power-off"></i> Go back to main website</a>
+						</div>
+					</li>
+				</ul>
+                <div class="topbar-divider"></div>
+			</div>
+		</header>
+        <main>

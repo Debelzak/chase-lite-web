@@ -1,0 +1,75 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<!--Page-->
+<div class="container">
+	<!-- Slide -->
+	<div class="slide">
+		<div class="jcarousel">
+			<ul>
+				<?php if(empty($arguments["sliders"])) :?>
+					<li><img style="border-radius:10px" src="<?=URL?>/images/slide/_noimage.png" alt=""></li>
+				<?php else:?>
+					<?php foreach ($arguments["sliders"] as $slider):?>
+						<?php if (!file_exists($slider->image)) : ?>
+							<?php $slider->image = URL . "/images/slide/_noimage.png";?>
+						<?php endif;?>
+
+						<li><img style="border-radius:10px" src="<?=URL . "/" . $slider->image?>" alt=""></li>
+					<?php endforeach; ?>
+				<?php endif; ?>
+            </ul>
+		</div>
+        <p class="jcarousel-pagination"  data-jcarouselpagination="true"></p>
+	</div>
+	<!-- Alerts -->
+	<div class="alert">
+		<?php foreach($arguments["importantNews"] as $important) :?>
+		<div class="box">
+			<br>
+			<a href="<?=URL?>/patchnotes">
+				<p>Important! <i class="icon-gc"></i></p>
+				<h1><?=$important["title"]?></h1>
+			</a>
+		</div>
+		<?php endforeach; ?>
+	</div>
+	<div class="clear"></div>
+	<div class="news">
+		<h2>Latest news</h2>
+		<div class="btn"><a href="<?=URL?>/patchnotes"></a></div>
+		<div class="clear"></div>
+		<!-- Content news -->
+		<?php foreach($arguments["regularNews"] as $regular) :?>
+		<div class="<?=$regular["boxClass"];?>">
+			<a href="<?=URL?>/patchnotes">
+				<span><?=$regular["regDate"];?></span>
+				<p><?=$regular["title"];?></p>
+			</a>	
+		</div>
+		<?php endforeach; ?>
+	</div>
+</div>
+<div class="clear"></div>
+<!-- Leaves -->
+<div class="leaves">
+	<div class="leaves-9"></div>
+	<div class="leaves-10"></div>
+	<div class="leaves-11"></div>
+	<div class="leaves-12"></div>
+	<div class="leaves-13"></div>
+	<div class="leaves-14"></div>
+	<div class="leaves-15"></div>
+	<div class="leaves-16"></div>
+	<div class="leaves-17"></div>
+	<div class="leaves-18"></div>
+</div>
+<!-- Trailer -->
+<div class="trailer">
+	<br>
+	<div class="play"></div>
+	<p>Click play to watch the trailer</p>
+</div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

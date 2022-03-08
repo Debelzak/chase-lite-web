@@ -1,0 +1,45 @@
+<?php require_once(__DIR__ . "/../Header.html");?>
+<div class="container">
+	<div class="page-title">
+		<h1>Register</h1>
+	</div>
+	<div class="page-container">
+		<br>
+		<h1><center><b>Please ensure that all fields are filled in</center></h1></b>
+		<form id="registerForm" method="post" action="<?=URL?>/register">
+			<br>
+			<input type="text" placeholder="User ID" id="login" name="login" class="input-full">
+			<input type="password" placeholder="Password" id="password" name="password" class="input-full">
+			<input type="password" placeholder="Confirm Password" id="re-password" name="confirm_password" class="input-full">
+			<input type="text" placeholder="Email" id="email" name="email" class="input-full">
+			<select class="select-full" style="margin: 10px 0px 10px 160px;" id="gender" name="gender">
+				<option>Select Gender</option>
+				<option value="0">Male</option>
+				<option value="1">Female</option>
+			</select>
+			<div class="checked-register">
+				<label class="label" style="cursor: pointer;">
+					<input type="checkbox" id="terms_placeholder"/>
+					<span id="termsLabel" class="span">I agree to the terms of use</span>
+				</label>
+			</div>
+			<input type="hidden" name="terms" id="terms" value="off"/>
+			<?php if(RECAPTCHA_ENABLE): ?>
+			<div class="google_robot" style="float: left; margin: 28px 0px 0px 295px;">
+				<script>
+					function reCapchaCallback()
+					{
+						$("#btn-submit").removeClass("disabled");
+					}
+				</script>
+				<div class="g-recaptcha" data-callback="reCapchaCallback" data-sitekey="<?=RECAPTCHA_SITEKEY?>" style="margin: 0px 0px 0px;"></div>
+			</div>
+			<?php endif; ?>
+			<div class="clear"></div>
+			<div class="separator"></div>
+			<br>
+			<button id="btn-submit" class="btn-confirm"></button>
+		</form>
+	</div>
+</div>
+<?php require_once(__DIR__ . "/../Footer.html");?>

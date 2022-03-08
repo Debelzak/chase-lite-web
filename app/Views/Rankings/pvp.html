@@ -1,0 +1,88 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<div class="container">
+	<div class="page-title">
+		<h1>Rankings</h1>
+	</div>
+	<div class="page-container">
+		<div class="rankings">
+			<?php if($arguments["ThisRanking"] != "daily"):?><a href="<?=URL?>/ranking/daily/" style="text-decoration:none"><?php endif;?><button class="button-ranking<?php if($arguments["ThisRanking"] == "daily") {echo " disabled";}?>">Daily Rank</button><?php if($arguments["ThisRanking"] != "daily"):?></a><?php endif;?>
+			<?php if($arguments["ThisRanking"] != "weekly"):?><a href="<?=URL?>/ranking/weekly/" style="text-decoration:none"><?php endif;?><button class="button-ranking<?php if($arguments["ThisRanking"] == "weekly") {echo " disabled";}?>">Weekly Rank</button><?php if($arguments["ThisRanking"] != "weekly"):?></a><?php endif;?>
+			<?php if($arguments["ThisRanking"] != "total"):?><a href="<?=URL?>/ranking/total/" style="text-decoration:none"><?php endif;?><button class="button-ranking<?php if($arguments["ThisRanking"] == "total") {echo " disabled";}?>">Overall Rank</button><?php if($arguments["ThisRanking"] != "total"):?></a><?php endif;?>
+			<?php if($arguments["ThisRanking"] != "exp"):?><a href="<?=URL?>/ranking/exp/" style="text-decoration:none"><?php endif;?><button class="button-ranking<?php if($arguments["ThisRanking"] == "exp") {echo " disabled";}?>">EXP Rank</button><?php if($arguments["ThisRanking"] != "exp"):?></a><?php endif;?>
+			<br/><br/><br/>
+			<h1 style="font-size: 18px;"><b>All rankings</b> are refreshed daily at 9:00 AM. The EXP ranking is a sum of your character's EXP. The rankings are also viewable at the in-game Park. </h1>
+			<div id="ranking-search" style="float:left; margin:0px 0px 0px 0px">
+				<form action="" method="post" style="margin:0;">
+				   <input class="select-ranking" type="text" name="search_nickname" size="25" placeholder="Player Nickname" required>
+				   <button class="button-ranking">Search</button>
+				</form>
+			</div>
+			<div style="float:right;">
+				<select class="select-ranking" name="characters" onchange="location=this.value;">
+				   <?php for($i=-1; $i < 20; $i++) : ?>
+					<option value='<?php echo URL . "/ranking/".$arguments["ThisRanking"]."/" . strtolower(getCharacterName($i));?>/1/container' <?php if($arguments["Character"] == strtolower(getCharacterName($i))) {echo "selected";}?>><?=getCharacterName($i)?></option>
+				   <?php endfor; ?>
+				</select> 
+			 </div>
+			<br><br>
+			<table class="table-ranking">
+				<thead>
+					<tr>
+						<th>Rank</th>
+						<th>Character</th>
+						<th>Guild</td>
+						<th>Nickname</th>
+						<th>Win / Loss</th>
+						<th>Win Rate</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($arguments["Ranking"] as $ranking): ?>
+					<tr <?php if($arguments["SearchFor"] == $ranking["Nickname"]) {echo "style='background-color: lightgoldenrodyellow;'";} ?>>
+						<td><?=$ranking["Position"]?></td>
+						<td>
+							<div class="tooltip">
+								<img src="<?=URL?>/images/characteres/icons/<?=$ranking["Character"]?>.png" height="40" style="display: block; margin: 0px 0px 0px 15px;">
+								<div class="desc">
+									<div class="arrow-up"></div>
+									<?=$ranking["Character"]?>
+								</div>
+							</div>
+						</td>
+						<td title="<?=$ranking["Guild"]?>">
+							<?=$ranking["GuildMark"]?>
+						</td>
+						<td>
+                            <?=$ranking["Nickname"]?>
+						</td>
+						<td><?=$ranking["Win"]?> / <?=$ranking["Lose"]?></td>
+						<td><?=$ranking["WinRate"]?>%</td>
+					</tr>
+					<?php endforeach; ?>
+					<?php if(empty($arguments["Ranking"])): ?>
+					<tr>
+						<td colspan="6" style="border-radius: 10px 10px 10px 10px;"><center>No results found.</center></td>
+					</tr>
+					<?php endif; ?>
+				</tbody>
+			</table>
+			<center>
+				<?php if ($arguments["Page"] > 1 && $arguments["Page"] <= $arguments["LastPage"]) : ?><a href="<?=URL?>/ranking/<?=$arguments["ThisRanking"]?>/<?=strtolower($arguments["Character"])?>/<?=$arguments["Page"]-1?>/container" style="text-decoration:none"><?php endif;?>
+					<button class="button-ranking<?php if ($arguments["Page"] <= 1 || $arguments["Page"] > $arguments["LastPage"]) {echo " disabled";}?>">Prev</button>
+				<?php if ($arguments["Page"] > 1 && $arguments["Page"] <= $arguments["LastPage"]) : ?></a><?php endif;?> &nbsp;
+
+				<label style="font-family:source;"> <?=$arguments["Page"]?> </label> &nbsp;
+
+				<?php if ($arguments["Page"] < $arguments["LastPage"] ) : ?><a href="<?=URL?>/ranking/<?=$arguments["ThisRanking"]?>/<?=strtolower($arguments["Character"])?>/<?=$arguments["Page"]+1?>/container" style="text-decoration:none"><?php endif;?>
+					<button class="button-ranking<?php if ($arguments["Page"] >= $arguments["LastPage"]) {echo " disabled";}?>">Next</button>
+				<?php if ($arguments["Page"] < $arguments["LastPage"] ) : ?></a><?php endif;?> &nbsp;
+			</center>
+			<br><br><br><br><br><br>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

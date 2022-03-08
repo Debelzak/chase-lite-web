@@ -1,0 +1,43 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+<script type="text/javascript">
+
+</script> 
+<div class="container">
+	<div class="page-title">
+		<h1>Redeem Token</h1>
+	</div>
+	<div class="page-container">
+		<br>
+		<h1 style="text-align: center; font-size: 30px; font-weight: bold;">Insert a valid token code to redeem</h1>
+		<div class="info">
+			<form id="tokenForm" method="post" url="">
+					<center>
+					<input type="text" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX" id="1" name="1" maxlength="29" class="input-full">
+					</center>
+				<?php if(RECAPTCHA_ENABLE): ?>
+				<center>
+				<div class="google_robot" style="margin: 28px 0px 0px 0px;">
+					<script>
+						function reCapchaCallback()
+						{
+							$("#btn-submit").removeClass("disabled");
+						}
+					</script>
+					<div class="g-recaptcha" data-callback="reCapchaCallback" data-sitekey="<?=RECAPTCHA_SITEKEY?>" style="margin: 0px 100px 0px;"></div>
+				</div>
+				</center>
+				<?php endif; ?>
+				<div class="clear"></div>
+				<br><br>
+				<div class="separator"></div>
+				<br>
+				<button id="btn-submit" class="btn-confirm"></button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

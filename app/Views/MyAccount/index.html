@@ -1,0 +1,52 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+
+<div class="container">
+	<div class="page-title">
+		<h1>My Account</h1>
+	</div>
+	<div class="page-container">
+		<div class="navbar-panel">
+			<ul>
+				<li><a href="<?=URL?>/myaccount/">Account Info</a></li>
+				<li><a href="<?=URL?>/myaccount/changepassword">Change Password</a></li>
+				<li><a href="<?=URL?>/myaccount/donationlog">Donation History</a></li>
+				<li><a href="<?=URL?>/donate">Recharge</a></li>
+				<li><a href="<?=URL?>/myaccount/logout">Logout</a></li>
+			</ul>
+		</div>
+		<br>
+		<h1 style="text-align: center; font-size: 30px; font-weight: bold;">Account Info</h1>
+		<div class="info">
+			<div class="list-info">User ID: <b><?=$arguments["userInfo"]["Login"]?></b></div>
+			<div class="list-info">Email: <b><?=$arguments["userInfo"]["Email"]?></b></div>
+			<div class="list-info">Cash: <b style="color: #8234bf;"><?=$arguments["userInfo"]["Cash"]?></b></div>
+			<div class="list-info">Last Logged-in: <b><?=$arguments["userInfo"]["LastConnection"]?></b></div>
+			<br><br><br>
+			<div class="separator" style="width: 958px;"></div>
+			<h1 style="text-align: center; font-size: 30px; font-weight: bold;">My Characters</h1>
+            <?php if(!empty($arguments["Characters"])): ?>
+			<?php foreach ($arguments["Characters"] as $character):?>
+			<div class="character <?=strtolower($character["CharacterName"])?>">
+				<div class="level">Level <b><?=$character["Level"]?></b></div>
+				<div class="class"><?=$character["PromotionName"]?></div>
+				<div class="clear"></div>
+				<div class="name"><?=$character["Nickname"]?></div>
+				<div class="other">EXP: <?=$character["Exp"]?></b></div>
+				<div class="other">Win: <b style="color: #9efd65"><?=$character["Win"]?></b> &nbsp; Loss: <b style="color: #ff4d4d;"><?=$character["Lose"]?></b></div>
+			</div>
+			<?php endforeach; ?>
+            <?php else: ?>
+            <center>
+                <br/>
+                <br/>
+                <h1><i>All your characters will be shown here.<br/>Come back when you create at least one character.</i></h1>
+            </center>
+            <?php endif; ?>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

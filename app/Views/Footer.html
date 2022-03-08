@@ -1,0 +1,80 @@
+<div class="footer">
+	<div class="container">
+		<div class="box-footer">
+			<li>
+				<h1>News</h1>
+				<p><a href="https://forum.chaselite.net/forum/4-announcements/">Announcements</a></p>
+				<p><a href="https://forum.chaselite.net/forum/8-patch-notes/">Patch Notes</a></p>
+				<p><a href="https://forum.chaselite.net/forum/13-events/">Events</a></p>
+			</li>
+			<li>
+				<h1>Guides</h1>
+				<p><a href="https://forum.chaselite.net/forum/31-character-guides/">Characters</a></p>
+				<p><a href="https://forum.chaselite.net/forum/41-dungeon-guides/">Dungeons</a></p>
+				<p><a href="https://forum.chaselite.net/forum/14-progression-guides/">Progression</a></p>
+			</li>
+			<li>
+				<h1>Community</h1>
+				<p><a href="<?=FORUM?>">Forum</a></p>
+				<p><a href="<?=DISCORD?>">Discord</a></p>
+				<p><a href="<?=TELEGRAM?>">Telegram</a></p>	
+			</li>
+			<li>
+				<h1>Support</h1>
+				<p><a href="https://forum.chaselite.net/topic/10-frequently-asked-questions/">FAQ</a></p>
+				<p><a href="https://forum.chaselite.net/forum/23-support/">General Inquiries</a></p>
+				<p><a href="https://forum.chaselite.net/forum/25-technical-support/">Technical Support</a></p>
+				<p><a href="https://forum.chaselite.net/forum/34-donations/">Donation Support</a></p>
+
+			</li>
+		</div>
+		<div class="clear"></div>
+		<div class="separator"></div>
+		<div class="logo-footer"></div>
+		<div class="text-footer">
+			<span><a href="https://forum.chaselite.net/topic/8-terms-of-service-general-rules/">Terms of Service</a></span>
+			<span><a href="https://forum.chaselite.net/topic/9-in-game-rules-regulations/?tab=comments#comment-12">Game Regulations</a></span>
+			<br>
+			<p>
+				© <?=date("Y")?> <?=TITLE?>. All rights reserved.
+			</p>
+		</div>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<link href="<?=URL?>/js/toast/jquery.toast.css" type="text/css" rel="stylesheet">
+<script src="<?=URL?>/js/toast/jquery.toast.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+<script src="<?=URL?>/js/sweetalert.js"></script>
+<script type="text/javascript" src="<?=URL?>/js/slide/slide.min.js"></script>
+<script type="text/javascript" src="<?=URL?>/js/slide/jcarouselbasic.js"></script>
+<script src="<?=URL?>/js/global.js"></script>
+<?php if(isset($arguments["alert"])):?>
+<script>
+$.toast({
+	heading: "<?=$arguments['alert']['title']?>",
+	text: "<?=$arguments['alert']['message']?>",
+	showHideTransition: 'slide',
+	icon: "<?=$arguments['alert']['type']?>"
+})
+</script>
+<?php endif;?>
+<?php if(isset($arguments["gotoContainer"])):?>
+<script>
+	$(document).ready(function() {
+		location.hash = "container"
+	});
+</script>
+<?php endif;?>
+<?php if(isset($arguments["alert2"])):?>
+<script>
+Swal.fire(
+  "<?=$arguments['alert2']['title']?>",
+  "<?=$arguments['alert2']['message']?>",
+  "<?=$arguments['alert2']['type']?>"
+)
+</script>
+<?php endif;?>
+</body>
+</html>

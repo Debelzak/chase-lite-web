@@ -1,0 +1,70 @@
+    <footer class="site-footer">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center text-md-left">Copyright © <?=DATE("Y")?> <a href="<?=URL?>"><?=TITLE?></a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<!-- Global quickview -->
+<div id="qv-global" class="quickview" data-url="<?=URL?>/assets/data/quickview-global.html">
+	<div class="spinner-linear">
+		<div class="line"></div>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="<?=URL?>/assets/js/core.min.js" data-provide="sweetalert"></script>
+<script src="<?=URL?>/assets/js/app.min.js"></script>
+<script src="<?=URL?>/assets/js/script.min.js"></script>
+<script>
+	app.ready(function(){
+	  // Earning chart
+	  //
+	  var chartjs2 = new Chart($("#chart-js-2"), {
+	    type: 'line',
+	    data: {
+	      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+	      datasets: [
+	        {
+	          label: "Donations (USD)",
+	          backgroundColor: "rgba(170,0,255,0.5)",
+	          borderColor: "rgba(170,0,255,0.5)",
+	          pointRadius: 0,
+	          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 20, 0]
+	        },
+	        {
+	          label: "Donations (BRL)",
+	          backgroundColor: "rgba(51,202,185,0.5)",
+	          borderColor: "rgba(51,202,185,0.5)",
+	          pointRadius: 0,
+	          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 80, 0]
+	        },
+	      ]
+	    },
+	    options: {
+	      legend: {
+	        display: false
+	      },
+	    }
+	  });
+	
+	
+	});
+</script>
+<?php if(isset($arguments["alert"])):?>
+<script>
+app.ready(function(){
+	swal({
+		title: "<?=$arguments['alert']['title']?>",
+		text: "<?=$arguments['alert']['message']?>",
+		type: "<?=$arguments['alert']['type']?>",
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33'
+	})
+})
+</script>
+<?php endif;?>
+</body>
+</html>

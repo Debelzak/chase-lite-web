@@ -1,0 +1,122 @@
+<?php require_once(__DIR__ . "/../Header.html");?>
+    <div class="main-content">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <div class="flexbox">
+                        <div data-provide="sparkline" data-width="100" data-fill-color="false" data-line-width="2">100,40,60,49,56,77,64,56,42,59,64</div>
+                        <div class="text-right">
+                            <span class="fw-400">New users this month</span><br>
+                            <span>
+                            <i class="ti-angle-up text-success"></i>
+                            <span class="fs-18 ml-1">113</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <div class="flexbox">
+                        <div data-provide="sparkline" data-type="bar" data-bar-color="#f2a654">1,4,7,6,4,8,6,12</div>
+                        <div class="text-right">
+                            <span class="fw-400">Users online</span><br>
+                            <span>
+                            <i class="ti-angle-down text-danger"></i>
+                            <span class="fs-18 ml-1">5,08%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <div class="flexbox">
+                        <div data-provide="sparkline" data-type="discrete" data-width="50" data-line-color="#926dde">1,4,3,7,6,4,8,9,6,8,12</div>
+                        <div class="text-right">
+                            <span class="fw-400">Impressions</span><br>
+                            <span>
+                            <i class="ti-angle-up text-success"></i>
+                            <span class="fs-18 ml-1">%80</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title"><strong>Donations overview</strong></h5>
+                        <a class="btn btn-xs btn-secondary" href="widget/chart.html">More info</a>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-inline text-center gap-items-4 mb-30">
+                            <li class="list-inline-item">
+                                <span class="badge badge-lg badge-dot mr-1" style="background-color: #aa00ff"></span>
+                                <span>Income (USD)</span>
+                            </li>
+                            <li class="list-inline-item">
+                                <span class="badge badge-lg badge-dot mr-1" style="background-color: #01c4cc"></span>
+                                <span>Income (BRL)</span>
+                            </li>
+                        </ul>
+                        <canvas id="chart-js-2" height="130" data-provide="chartjs"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title"><strong>Top</strong> Advertisers</h5>
+                        <ul class="card-controls">
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" href="#"><i class="ti-more-alt rotate-90"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item active" href="#">Today</a>
+                                    <a class="dropdown-item" href="#">Yesterday</a>
+                                    <a class="dropdown-item" href="#">Last week</a>
+                                    <a class="dropdown-item" href="#">Last month</a>
+                                </div>
+                            </li>
+                            <li><a class="card-btn-reload" href="#" title="Refresh" data-provide="tooltip"><i class="fa fa-circle-thin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body card-body">
+                        <p class="text-center d-none d-xl-block">We need to stop interrupting what people are and be what people are interested in. We need to stop interrupting what people are and be what people are interested in.</p>
+                        <div class="text-center py-20 d-none d-lg-block">
+                            <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">9,6,5</div>
+                        </div>
+                        <div class="text-center py-20 d-lg-none">
+                            <div data-provide="peity" data-type="donut" data-size="87" data-inner-radius="35" data-fill="#efb3e6,#ffdf7c,#b2def7">9,6,5</div>
+                        </div>
+                        <br>
+                        <ul class="list-inline mb-0">
+                            <li class="flexbox mb-1">
+                                <div>
+                                    <span class="badge badge-dot badge-lg mr-1" style="background-color: #efb3e6"></span>
+                                    <span>Google</span>
+                                </div>
+                                <div>953</div>
+                            </li>
+                            <li class="flexbox mb-1">
+                                <div>
+                                    <span class="badge badge-dot badge-lg mr-1" style="background-color: #ffdf7c"></span>
+                                    <span>Facebook</span>
+                                </div>
+                                <div>813</div>
+                            </li>
+                            <li class="flexbox">
+                                <div>
+                                    <span class="badge badge-dot badge-lg mr-1" style="background-color: #b2def7"></span>
+                                    <span>Twitter</span>
+                                </div>
+                                <div>369</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

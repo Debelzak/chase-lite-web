@@ -1,0 +1,77 @@
+<!-- Header -->
+<?php require_once(__DIR__ . "/../Header.html");?>
+<script type="text/javascript">
+function prompt()
+{
+	Swal.fire({
+	  title: 'Are you sure you want to claim this token?',
+	  message: 'Once claimed, the proccess cannot be undone.',
+	  showDenyButton: true,
+	  confirmButtonText: 'Yes',
+	  denyButtonText: `No`,
+	}).then((result) => {
+	  if (result.isConfirmed) {
+		submitForm();
+	  }
+	})
+}
+
+function submitForm()
+{
+	document.getElementById('tokenForm').submit();
+}
+</script> 
+<div class="container">
+	<div class="page-title">
+		<h1>Redeem Token</h1>
+	</div>
+	<div class="page-container">
+		<br>
+		<h1 style="text-align: center; font-size: 30px; font-weight: bold;">The token you inserted contains the following rewards:</h1>
+		<div class="rankings">
+			<table class="table-ranking">
+				<thead>
+					<tr>
+						<th>Reward Number</th>
+						<th>Item Name</th>
+						<th>Quantity / Duration</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($arguments["tokenRewards"] as $reward):?>
+					<tr>
+						<td><?=$reward["Number"]?></td>
+						<td><?=$reward["ItemName"]?></td>
+						<td><?=$reward["Count"]?></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<center><h1 style="font-size: 18px;">* Each token can only be redeemed once, upon successful redemption the operation cannot be undone.</h1></center>
+			<form id="tokenForm" method="post" url="">
+				<input type="hidden" id="1" name="1" value="<?=$arguments["TokenSerial"]?>">
+				<input type="hidden" id="confirm" name="confirm" value="true">
+				<?php if(RECAPTCHA_ENABLE): ?>
+				<center>
+				<div class="google_robot" style="margin: 28px 0px 0px 0px;">
+					<script>
+						function reCapchaCallback()
+						{
+							$("#btn-submit").removeClass("disabled");
+						}
+					</script>
+					<div class="g-recaptcha" data-callback="reCapchaCallback" data-sitekey="<?=RECAPTCHA_SITEKEY?>" style="margin: 0px 100px 0px;"></div>
+				</div>
+				</center>
+				<?php endif; ?>
+			</form>
+			<div id="submitForm" class="btn_center" onclick="prompt()"><a>Redeem Now</a></div>
+			<br><br><br>
+			<br><br><br>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+
+<!-- Footer -->
+<?php require_once(__DIR__ . "/../Footer.html");?>

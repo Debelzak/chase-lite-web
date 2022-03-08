@@ -1,0 +1,10 @@
+version: "3"
+services:
+    web:
+        container_name: "chase-lite-web"
+        build: ./
+        volumes:
+            - ./:/var/www/html
+            - ./log:/var/log/apache2
+        ports:
+            - "8000:80"
