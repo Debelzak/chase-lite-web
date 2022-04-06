@@ -1,5 +1,12 @@
 # chase-lite-web
 
+- Apache
+- PHP (MVC)
+- Microsoft SQL Server
+- HTML + CSS + JavaScript
+
+---
+
 Website developed for Chase-Lite MMORPG project. As the project was discontinued, I've decided to release the website to public at 2021-12-14, to anyone interested. All main functions are working except by the admin panel, which development was interrupted due to the project's discontinuement.
 
 ---
